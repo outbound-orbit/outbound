@@ -1,0 +1,45 @@
+document: Emitted Document { shape:page }
+
+resolver: Resolver {
+    success: Sucesso {
+        isSync: É Sincrono? {tooltip: Possui numero de NFSe}
+
+        sync: Emitida {
+            shape: parallelogram
+        }
+
+        async: Protocolo {
+            shape: parallelogram
+        }
+
+        updateAsync: Atualiza nota para Consulta Protocolo
+        updateSync: Reflete emissão no documento
+
+        triggers: Gatilhos de emissão {
+            shape: parallelogram
+        }
+
+        email: Enviar Email
+
+        specs: Busca especificações município
+        hasQuery: Tem consulta? {shape:diamond}
+        query: Consulta Nota
+        updatedCountyXml: Atualiza countyXml 
+        undefined: Para { shape: oval }
+
+        isSync -> sync: Sim
+        isSync -> async: Não
+
+        sync -> updateSync: Dados da emissão
+        updateSync -> triggers: Proximo
+
+        triggers -> email: 1. Dados da comunicação
+        triggers -> specs: 2. Segue para consulta
+        specs -> hasQuery
+        hasQuery -> query: Sim
+        hasQuery -> undefined: Não
+        query -> updatedCountyXml
+ 
+        async -> updateAsync
+    }
+}
